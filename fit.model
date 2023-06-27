@@ -1,0 +1,16 @@
+from sklearn.ensemble import IsolationForest
+import numpy as np
+
+# Generate some random data
+X = np.random.rand(100, 2)
+
+# Create an Isolation Forest model
+model = IsolationForest(contamination=0.1)
+
+# Fit the model to the data
+model.fit(X)
+
+# Predict anomaly scores for the data points
+anomaly_scores = model.decision_function(X)
+
+print("Anomaly scores:", anomaly_scores)
